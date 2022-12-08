@@ -1,0 +1,105 @@
+
+body{
+	background-image: url("../images/背景.jpeg"); /*背景画像*/
+	background-size: cover;
+	text-align: center; /*全体を中央寄りに*/
+	font: "MS ゴシック";
+	line-height:1.5;
+}
+
+.maingazou {
+	padding-top: 30px;
+	width:300px;
+}
+
+.font {
+  font-family: "ヒラギノ角ゴPro W3","MS ゴシック","ヒラギノ角ゴProN W4","メイリオ","MS Pゴシック",sans-serif;
+/*使用可能な文字コード指定*/
+}
+
+ul{
+	list-style-type: none;
+	padding-left: 0;/*基準値を0固定*/
+}
+
+li{
+	background: orange;/*liタグの背景色*/
+	width:80px;
+	height:40px;
+	padding:10px;
+	margin:3px;	/*間隔*/
+}
+
+h2{
+	padding-top: 20px;
+	font-size: 25px;
+}
+
+.jpopkaisetsu{
+	background-color: white;
+	width: 500px;
+	height: 250px;
+    padding-left: 15px;
+	margin-left: 10em;
+}
+
+.jpopkaisetsu p {
+	font-size: 24px;
+	text-align: left;
+}
+
+.anisonkaisetsu{
+    background-color: white;
+	width: 500px;
+    height: 250px;
+	padding-left: 15px;
+	margin-left: 10em;
+}
+
+.anisonkaisetsu p{
+    font-size: 24px;
+    text-align: left;
+}
+
+.bokarokaisetsu{
+	background-color: white;
+	width: 500px;
+	height: 250px;
+	padding-left: 15px;
+	margin-left: 10em;
+}
+
+.bokarokaisetsu p{
+	font-size: 24px;
+	text-align: left;
+}
+
+.kpopkaisetsu{
+	background-color: white;
+	width: 500px;
+	height: 200px;
+	padding-left: 15px;
+	margin-left: 10em;
+}
+
+.kpopkaisetsu p{
+	font-size: 24px;
+	text-align: left;
+}
+
+.inline{
+	text-align: center;
+}
+
+.inline li{
+	display: inline;
+}
+
+.item{
+	flex-direction: column;
+	font-size: 24px;
+	padding: 10px;
+	width: 200px;
+	margin: 10px;
+	float: none;
+}

@@ -1,0 +1,23 @@
+
+
+ul {
+	list-style: none;
+	display: flex; /*横並び*/
+}
+
+
+li {
+	text-decoration: none;
+	text-align: center;　/*配置を真ん中揃いに*/
+	background-color:blue; /*背景色*/
+	margin-right: 5px; /*各リストの間隔*/
+	font-weight: bold;　/*文字を太く*/
+}
+
+li a {
+	text-decoration: none;
+	text-align: center;　/*配置を真ん中揃いに*/
+	color:blue;	/*文字色*/
+	font-weight: bold;　/*文字を太く*/
+	padding: 20px;
+}
