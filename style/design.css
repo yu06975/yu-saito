@@ -1,0 +1,230 @@
+
+body{
+	background-image: url("../images/背景.jpeg"); /*背景画像*/
+	background-size: cover;
+	text-align: center; /*全体を中央寄りに*/
+	font: "MS ゴシック";
+	line-height:1.5;
+}
+
+.maingazou {
+	padding-top: 30px;
+	width:300px;
+}
+
+.font {
+  font-family: "ヒラギノ角ゴPro W3","MS ゴシック","ヒラギノ角ゴProN W4","メイリオ","MS Pゴシック",sans-serif;
+/*使用可能な文字コード指定*/
+}
+
+
+
+h2{
+	padding-top: 20px;
+	font-size: 25px;
+}
+
+.ankeeto{
+	padding-top: 30px;
+}
+
+.ankeeto p{
+	font-size: 30px;
+}
+
+/*********************
+/大きいタイトル
+******************/
+
+
+
+h1 {
+	position: relative;
+	padding: 0.3em 0.5em;
+	background: -webkit-linear-gradient(to top, rgb(137, 184, 255), #c5ceff);
+	background: linear-gradient(to top, rgb(137, 184, 255), #c5ceff);
+	color: #df332d;
+	border-bottom: solid 3px black;
+  }
+
+  
+ /* メニューバー*/
+ 
+  *{
+	box-sizing: border-box;
+}
+
+  ul.menu-nav01{
+  background: #0961c5;
+  padding: 0;
+  text-align: center;
+  
+  }
+  ul.menu-nav01 li{
+  display: inline-block;
+  }
+  
+  
+  ul.menu-nav01 li a{
+  display: block;
+  padding: 1em;
+  color: #fff;
+  text-decoration: none;
+  }
+  ul.menu-nav01 a::first-line{
+  font-size: 19px;
+  font-weight: bold;
+  }
+
+  ul.menu-nav01 li:hover{
+	background: #FF7F50;
+	}
+
+
+/*各ランキングの順位表示*/
+h2 {
+	padding: 1rem 2rem;
+	border-bottom: 3px solid rgb(106, 13, 255);
+	font-size: 35px;
+	background: #f4f4f4;
+  }
+
+  #ranking {
+    display: flex;
+  }
+  #item {
+    flex-grow: 1;
+	font-size: 50px;
+	background: #71c9ba;
+	text-shadow: #fff 2px 0, #fff -2px 0, #fff 0 -2px, #fff 0 2px, #fff 2px 2px, #fff -2px 2px, #fff 2px -2px, #fff -2px -2px, #fff 1px 2px, #fff -1px 2px, #fff 1px -2px, #fff -1px -2px, #fff 2px 1px, #fff -2px 1px, #fff 2px -1px, #fff -2px -1px, rgba(0, 0, 0, .5) 3px 3px 3px;
+}
+  
+  #item2 {
+    flex-grow: 1;
+  }
+
+  #kyokumeiate{
+    display: flex;
+  }
+  #item-quiz {
+    flex-grow: 1;
+	font-size: 50px;
+	background: #9edf79;
+	text-shadow: #fff 2px 0, #fff -2px 0, #fff 0 -2px, #fff 0 2px, #fff 2px 2px, #fff -2px 2px, #fff 2px -2px, #fff -2px -2px, #fff 1px 2px, #fff -1px 2px, #fff 1px -2px, #fff -1px -2px, #fff 2px 1px, #fff -2px 1px, #fff 2px -1px, #fff -2px -1px, rgba(0, 0, 0, .5) 3px 3px 3px;
+}
+
+#ankeeto{
+    display: flex;
+  }
+  #item-form {
+    flex-grow: 1;
+	font-size: 50px;
+	background: #bcca40;
+	text-shadow: #fff 2px 0, #fff -2px 0, #fff 0 -2px, #fff 0 2px, #fff 2px 2px, #fff -2px 2px, #fff 2px -2px, #fff -2px -2px, #fff 1px 2px, #fff -1px 2px, #fff 1px -2px, #fff -1px -2px, #fff 2px 1px, #fff -2px 1px, #fff 2px -1px, #fff -2px -1px, rgba(0, 0, 0, .5) 3px 3px 3px;
+}
+  
+  
+
+
+/*各ランキングの曲の流行出来事の解説*/
+
+
+  .dekigoto01 {
+    position: relative;
+    margin: 2em 0;
+    padding: 25px 10px 7px;
+    border: solid 5px #FFC107;
+	background: #e4f597;
+}
+.dekigoto01 .box-title {
+    position: absolute;
+    display: inline-block;
+    top: -2px;
+    left: -2px;
+    padding: 0 9px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 23px;
+    background: #FFC107;
+    color: #000000;
+    font-weight: bold;
+}
+.dekigoto01 p {
+    margin: 0; 
+    padding: 0;
+}
+
+.list_design002 li {
+	color: #fd7608;
+	margin-left: 150px;
+	font-size: 20px;
+
+  }
+  .list_design002 li span {
+	color: #333;
+	margin-right: 100px;
+	font-size: 20px;
+  }
+
+  
+ 
+ /*曲名当てクイズ*/
+
+ .box {
+    padding: 0.5em 1em;
+    margin: 3em 80px;
+	background: #bbd3ee;
+    border: double 10px #4ec4d3;
+}
+
+
+ 
+  .quizzes-container {
+	width: 400px;
+	margin: 50px auto;
+  }
+  
+  .quiz-container {
+	border-bottom:1px solid black;
+	padding-bottom: 20px;
+  }
+  
+  .btn {
+	margin-top: 20px;
+	font-family: serif;
+	background-color: white;
+  }
+  
+  #score-container {
+	border: 1px solid black;
+	height: 50px;
+  }
+  
+  .btn-score {
+	display: block;
+	margin: 20px auto;
+	font-family: serif;
+	background-color: white;
+  }
+
+
+  .btn_oto {
+    box-sizing: border-box;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    width: 80%;
+}
+
+  /*アンケートページ*/
+
+  .box-ankeeto {
+    padding: 0.5em 1em;
+    margin: 3em 80px;
+	background: #bbd3ee;
+    border: double 10px #4ec4d3;
+}
