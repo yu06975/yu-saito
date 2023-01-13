@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="ja">
+  
+  <head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="kyokuate-quiz.js"></script>
+    <title>音楽人気ランキング</title>
+  </head>
+  
+    <h1>2022年日本国内音楽人気ランキング</h1>
+    
+	<link rel="stylesheet" href="../../style/design.css">
+<body>
+
+  <ul class="menu-nav01">
+    <ul>
+       <li><a href="../toppage01.html">TOP<br>トップページへ</a></li>
+       <li><a href="./quiz.html">Quiz<br>曲名当てクイズ</a></li>
+       <li><a href="./ankeeto/ankeeto.html">Contact<br>アンケート</a></li>
+     </ul>
+   </ul>
+         <br><br><br>
+
+         <div id="kyokumeiate">
+          <div id="item-quiz"><span>曲名当てクイズ</span></div>
+            <div id="item2"></div>
+        </div>
+
+       
+
+        
+<div class="box">
+ 
+   <script>
+      let total_q_number=15; /問題数/
+      let total_number=5;　/出題数/
+      var ratio;
+      var time;
+      var q_number=0;
+      var question;
+      var write;
+      var audio;
+      var select1;
+      var select2;
+      var select3;
+      var select4;
+      var correct;
+      var answer;
+      var compliment;
+      var c_number=0;
+      var order=Array(total_number);
+      order.fill(0);
+      var k=0;
+
+
+function select_question(){
+    if(order[q_number]==1){
+        question="<strong>ヒントを頼りに曲名を当てよう!<br>この曲名は何でしょう?</strong><br><br>・今年ヒットしたアニソン<br> ・女性が歌っている<br> ・アニメ鬼滅の刃「遊郭編」の主題歌</br></br>";
+        select1="炎";
+        select2="残響散歌";
+        select3="紅蓮華";
+        select4="明け星";
+        correct="2";
+    }
+    else if(order[q_number]==2){
+        question="<strong>ヒントを頼りに曲名を当てよう!<br>この曲名は何でしょう?</strong><br><br>・男女混合4人組のバンド<br> ・映画「ホリック xxxHOLiC」の主題歌<br> ・歌い出しが「君たちったら～」から始まる</br></br>";
+        select1="RPG";
+        select2="Dragon Night";
+        select3="炎と森のカーニバル";
+        select4="Habit";
+        correct="4";
+    }
+    else if(order[q_number]==3){
+        question="<strong>ヒントを頼りに曲名を当てよう<br>この歌詞は何の曲でしょう?</strong><br><br>・4人組ピアノポップバンド<br>・フジテレビ系列木曜劇場「silent」の主題歌<br> ・歌い出しが「凍りついた心には太陽を～」から始まる</br></br>";
+        select1="Pretender";
+        select2="宿命";
+        select3="Subtitle";
+        select4="Cry Baby";
+        correct="3";
+    }
+    else if(order[q_number]==4){
+        question="<strong>ヒントを頼りに曲名を当てよう<br>この歌詞は何の曲でしょう?</strong><br><br>・女性が歌っている<br> ・映画「ONE PIECE FILM RED」の挿入歌<br> ・歌い出しが「さぁ 怖くない～」から始まる</br></br>";
+        select1="私は最強";
+        select2="Tot Musica";
+        select3="逆光";
+        select4="新時代";
+        correct="1";
+    }
+    else if(order[q_number]==5){
+        question="<strong>ヒントを頼りに曲名を当てよう<br>この歌詞は何の曲でしょう?</strong><br><br>・女性が歌っている<br>・アニメ「機動戦士ガンダム 水星の魔女」OP<br> ・歌い出しが「遥か遠くに浮かぶ星を～」から始まる</br></br>";
+        select1="怪物";
+        select2="祝福";
+        select3="夜に駆ける";
+        select4="群青";
+        correct="2";
+    }
+    else if(order[q_number]==6){
+        question="<strong>ヒントを頼りに曲名を当てよう<br>この歌詞は何の曲でしょう?</strong><br><br>・ロックバンド<br> ・フジテレビの情報番組「めざまし8」のテーマ曲<br> ・歌い出しが「いつだって大丈夫～」から始まる</br></br>";
+        select1="青と夏";
+        select2="フロリジルナル";
+        select3="Soranji";
+        select4="ダンスホール";
+        correct="4";
+    }
+    else if(order[q_number]==7){
+        question="<strong>ヒントを頼りに曲名を当てよう<br>この歌詞は何の曲でしょう?</strong><br><br>・男性シンガーソングライター<br> ・TBS金曜ドラマ「アンナチュラル」の主題歌<br> ・歌い出しが「夢ならばどれほどよかったでしょう～」から始まる</br></br>";
+        select1="KICK BACK";
+        select2="LOSER";
+        select3="Lemon";
+        select4="Flamingo";
+        correct="3";
+    }
+    else if(order[q_number]==8){
+        question="<strong>ヒントを頼りに曲名を当てよう<br>この歌詞は何の曲でしょう?</strong><br><br>・4人組のミクスチャー・ロックバンド<br> ・劇場版 「呪術回戦0」の主題歌<br> ・歌い出しが「最期にもう一度～」から始まる</br></br>";
+        select1="一途";
+        select2="逆夢";
+        select3="白日";
+        select4="カメレオン";
+        correct="1";
+    }
+    else if(order[q_number]==9){
+        question="<strong>ヒントを頼りに曲名を当てよう<br>この歌詞は何の曲でしょう?</strong><br><br>・4人組のロックバンド<br> ・大人気TVアニメ「SPY×FAMILY」第2クールの主題歌<br> ・歌い出しが「恐らく気付いてしまったみたい～」から始まる</br></br>";
+        select1="天体観測";
+        select2="SOUVENIR";
+        select3="クロノスタシス";
+        select4="スノースマイル";
+        correct="2";
+    }
+    else if(order[q_number]==10){
+        question="<strong>ヒントを頼りに曲名を当てよう<br>この歌詞は何の曲でしょう?</strong><br><br>・7人組ボーイズグループ<br> ・日本テレビ系朝の情報番組「ZIP!」で放送する朝ドラマ「サヨウナラのその前に」の主題歌<br> ・歌い出しが「あと少し ほんのちょっと～」から始まる</br></br>";
+        select1="Shining One";
+        select2="Milli-Billi";
+        select3="Bye-Good-Bye";
+        select4="Betrayal Game";
+        correct="3";
+    }
+    else if(order[q_number]==11){
+        question="<strong>ヒントを頼りに曲名を当てよう<br>この歌詞は何の曲でしょう?</strong><br><br>・シンガーソングライター・俳優<br> ・大人気TVアニメ「SPY×FAMILY」のエンディング主題歌<br> ・歌い出しが「争い合って 壊れかかった～」から始まる</br></br>";
+        select1="アイデア";
+        select2="SUN";
+        select3="恋";
+        select4="喜劇";
+        correct="4";
+    }
+    else if(order[q_number]==12){
+        question="<strong>ヒントを頼りに曲名を当てよう<br>この歌詞は何の曲でしょう?</strong><br><br>・シンガーソングライター・You Tuber<br> ・フジテレビ系「木曜劇場」の「SUPER RICH」のエンディング主題歌<br> ・歌い出しが「空にある何かを見つめてたら～」から始まる</br></br>";
+        select1="ドライフラワー";
+        select2="ベテルギウス";
+        select3="レオ";
+        select4="かくれんぼ";
+        correct="2";
+    }
+    else if(order[q_number]==13){
+        question="<strong>ヒントを頼りに曲名を当てよう<br>この歌詞は何の曲でしょう?</strong><br><br>・シンガーソングライター・ミュージシャン・マルチアーティスト<br> ・マルハニチロ食品「WILDish」CMソング<br> ・歌い出しが「思い出すのは君の歌～」から始まる</br></br>";
+        select1="怪獣の花唄";
+        select2="踊り子";
+        select3="東京フラッシュ";
+        select4="裸の勇者";
+        correct="1";
+    }
+    else if(order[q_number]==14){
+        question="<strong>ヒントを頼りに曲名を当てよう<br>この歌詞は何の曲でしょう?</strong><br><br>・シンガーソングライター・ピアニスト・ミュージシャン<br> ・Honda「VEZEL」テレビCM<br> ・歌い出しが「荒れ狂う季節の中を二人は一人きり～」から始まる</br></br>";
+        select1="死ぬのがいいわ";
+        select2="grace";
+        select3="まつり";
+        select4="きらり";
+        correct="4";
+    }
+    else if(order[q_number]==15){
+        question="<strong>ヒントを頼りに曲名を当てよう<br>この歌詞は何の曲でしょう?</strong><br><br>・男女混合4人組ポップ・ロック・バンド<br> ・株式会社ダリヤ「パルティ カラーリングミルク」のCMソング<br> ・歌い出しが「今なんじゃない?～」から始まる</br></br>";
+        select1="ミチヲユケ";
+        select2="キャラクター";
+        select3="Mela!";
+        select4="Shout Baby";
+        correct="3";
+    }
+    
+}
+
+function cor1(){
+    answer="1";
+    discri_answer();
+}
+function cor2(){
+    answer="2";
+    discri_answer();
+}
+function cor3(){
+    answer="3";
+    discri_answer();
+}
+function cor4(){
+    answer="4";
+    discri_answer();
+}
+
+
+
+function discri_answer() {
+    column = document.getElementById("output");
+    if(correct == answer && q_number != total_number-1){
+        column.innerHTML = "<strong><font size='5' color='#ff0000'>選択肢[" + correct + "]　正解！！</font></strong> <input id='next_but' type='button' value='クリックして次へ進もう' onclick='next();'/><br><br>";
+        c_number++;
+        columnq = document.getElementById("c_num");
+        columnq.innerHTML = c_number;
+    }
+    else if(correct != answer && q_number != total_number-1){
+        column.innerHTML = "<strong><font size='5' color='#0000ff'>残念！！正解は[" + correct + "]</font></strong> <input id='next_but' type='button' value='クリックして次へ進もう' onclick='next();'/><br><br>";
+    }
+    else if(correct == answer && q_number == total_number-1){
+        c_number++;
+        ratio=c_number/total_number*100;
+        ratio=ratio.toFixed();
+        time=(Date.now()-time)/1000;
+        compliment="";
+        if(ratio<=25){
+            compliment="<font color='#000077' size='10'><i>try hard ...</i></font>";
+        }
+        else if(ratio>25 && ratio<=70){
+            compliment="<font color='#005500' size='10'><i>way to go</i></font>";
+        }
+        else if(ratio>70 && ratio<=99){
+            compliment="<font color='#ff4500' size='10'><i>＊better luck next time＊</i></font>";
+        }
+        else if(ratio>99){
+            compliment="<font color='#880000' size='10'><i>excellent!!</i></font>";
+        }
+        else{
+            compliment="さらに研鑽を積もう";
+        }
+        column.innerHTML = "<strong><font size='5' color='#ff0000'>選択肢[" + correct + "]　正解！！</font> <font size='5'>全問終了!!お疲れさまでした。</font></strong><br><br><font size='5'>かかった時間は<strong>" + time + "秒</strong>　正答率は" + c_number + "/" + total_number + "=<strong>" + ratio + "％</strong>でした</font><br><br><strong>" + compliment + "</strong><br><br><input id='next_but' type='button' value='もう一度挑戦する' onclick='reflesh();'/><br><br><input id='next_but' type='button' value='前のページに戻る' onclick='last();'/><br><br>";
+        columnq = document.getElementById("c_num");
+        columnq.innerHTML = c_number;
+    }
+    else if(correct != answer && q_number == total_number-1){
+        ratio=c_number/total_number*100;
+        ratio=ratio.toFixed(2)
+        time=(Date.now()-time)/1000;
+        compliment="";
+        if(ratio<=25){
+            compliment="<font color='#000077' size='10'><i>try hard ...</i></font>";
+        }
+        else if(ratio>25 && ratio<=70){
+            compliment="<font color='#005500' size='10'><i>way to go</i></font>";
+        }
+        else if(ratio>70 && ratio<=99){
+            compliment="<font color='#ff4500' size='10'><i>＊better luck next time＊</i></font>";
+        }
+        else if(ratio>99){
+            compliment="<font color='#880000' size='10'><i>excellent!!</i></font>";
+        }
+        else{
+            compliment="さらに研鑽を積もう";
+        }
+        column.innerHTML = "<strong><font size='5' color='#0000ff'>残念！！正解は[" + correct + "]</font> <font size='5'>全問終了!!お疲れさまでした。</font></strong><br><br><font size='5'>かかった時間は<strong>" + time + "秒</strong>　正答率は" + c_number + "/" + total_number + "=<strong>" + ratio + "％</strong>でした</font><br><br><strong>" + compliment + "</strong><br><br><input id='next_but' type='button' value='もう一度挑戦する' onclick='reflesh();'/><br><br><input id='next_but' type='button' value='前のページに戻る' onclick='last();'/><br><br>";
+    }
+    document.getElementById("but1").disabled = true;
+    document.getElementById("but2").disabled = true;
+    document.getElementById("but3").disabled = true;
+    document.getElementById("but4").disabled = true;
+}
+function reflesh(){
+    window.location.reload();
+}
+function last(){
+    window.history.back();
+}
+function next() {
+    q_number++;
+    column = document.getElementById("output");
+    column.innerHTML = "";
+    document.getElementById("but1").disabled = false;
+    document.getElementById("but2").disabled = false;
+    document.getElementById("but3").disabled = false;
+    document.getElementById("but4").disabled = false;
+    select_question()
+    if(q_number!=total_number){
+        columnq = document.getElementById("q_num");
+        columnq.innerHTML = q_number+1;
+    }
+    columnq = document.getElementById("quest");
+    columnq.innerHTML = question;
+    column1 = document.getElementById("but1");
+    column1.value = "[1]　" + select1;
+    column2 = document.getElementById("but2");
+    column2.value = "[2]　" + select2;
+    column3 = document.getElementById("but3");
+    column3.value = "[3]　" + select3;
+    column4 = document.getElementById("but4");
+    column4.value = "[4]　" + select4;
+}
+while(order[total_number-1] == 0 && k<100){
+    r=Math.floor(Math.random() * total_q_number + 1);
+    for(let j=0; j<total_number; j++){
+        if(order[j]==r){
+            break;
+        }
+        if(order[j]==0){
+            order[j]=r;
+            break;
+        }
+    }
+    k=k+1;
+}
+if(k==100){
+    for(let i=0; i<total_number; i++){
+        order[i]=i+1;
+    }
+}
+                            qu_number=q_number+1;
+                            select_question();
+                            document.open();
+                            document.write(total_number + "問中　<span id='q_num'>" + qu_number + "</span>問目　正解数<span id='c_num'>" + c_number + "</span>");
+                            document.write("<p><div id='quest'>" + question + "　選択肢をクリックしてください</div></p><br>");
+                            document.write("<div id='output'></div>");
+                            document.write("<input id='but1' type='button' style='text-align: left; width:75%;font-size:15px;' value=[1]　" + select1 + " onclick='cor1();'/><br><br>");
+                            document.write("<input id='but2' type='button' style='text-align: left; width:75%;font-size:15px;' value=[2]　" + select2 + " onclick='cor2();'/><br><br>");
+                            document.write("<input id='but3' type='button' style='text-align: left; width:75%;font-size:15px;' value=[3]　" + select3 + " onclick='cor3();'/><br><br>");
+                            document.write("<input id='but4' type='button' style='text-align: left; width:75%;font-size:15px;' value=[4]　" + select4 + " onclick='cor4();'/><br><br>");
+                            document.close();
+                            time=Date.now();
+    </script>
+</div>
+       <!-- <div class="quizzes-container">         
+          <div class="quiz-container">
+            <h2>第1問</h2>
+            <div>
+              <p>誰かが描いたイメージじゃなくて<br>
+                 誰かが選んだステージじゃなくて<br>
+                 僕たちが作っていくストーリー<br>
+                 決して一人にはさせないから<br>
+                 いつかその胸に秘めた<br>
+                 刃が鎖を断ち切るまで<br>
+                 ずっと共に闘うよ</p>
+            </div>
+            <form id="quiz-1">
+              <input name="answer" type="radio" value="a">一途</input>
+              <input name="answer" type="radio" value="b">祝福</input>
+              <input name="answer" type="radio" value="c">怪物</input>
+            </form>
+            <button class="btn" type="button" onclick="answerQuiz1();">回答する</button>
+          </div>
+          <div class="quiz-container">
+            <h2>第2問</h2>
+            <div>
+              <p>踊る暇があったら発明してえ<br>
+                 歌う暇があったら発明してえ<br>
+                 ライブのブッキング蹴って発明してえ<br>
+                 そんな発明王にオレはなる</p>
+            </div>
+            <form id="quiz-2">
+              <input name="answer" type="radio" value="a">残響散歌</input>
+              <input  name="answer" type="radio" value="b">新時代</input>
+              <input name="answer" type="radio" value="c">エジソン</input>
+            </form>
+            <button class="btn" type="button" onclick="answerQuiz2();">回答する</button>
+          </div>
+          <div class="quiz-container">
+            <h2>第3問</h2>
+            <div>
+              <p>まだ消えちゃいないよ ちっちゃな希望を<br>
+                 何とか信じて 信じて欲しい<br>
+                 裏切りが続こうが<br>
+                 「大切」が壊れようと<br>
+                 何とか生きて 生きて欲しい<br>
+                <br>
+                 有り得ない程に キリがない本当に<br>
+                 無駄がない程に 我らは尊い</p>
+            </div>
+            <form id="quiz-3">
+              <input name="answer" type="radio" value="a">Soranji</input>
+              <input name="answer" type="radio" value="b">もう一度</input>
+              <input name="answer" type="radio" value="c">色彩</input>
+            </form>
+            <button class="btn" type="button" onclick="answerQuiz3();">回答する</button>  
+          </div>
+          <div class="quiz-container">
+            <h2>第4問</h2>
+            <div>
+              <p>言葉はまるで雪の結晶<br>
+                 君にプレゼントしたくても<br>
+                 夢中になればなるほど<br>
+                 形は崩れ落ちて溶けていって<br>
+                 消えてしまいけど<br>
+                 でも僕が選ぶ言葉が<br>
+                 そこに託された想いが<br>
+                 君の胸を震わすのを<br>
+                 諦められない<br>
+                 愛してるよりも愛が届くまで<br>
+                 もう少しだけ待ってて</p>
+            </div>
+            <form id="quiz-4">
+              <input name="answer" type="radio" value="a">Stardom</input>
+              <input  name="answer" type="radio" value="b">Subtitle</input>
+              <input name="answer" type="radio" value="c">逆光</input>
+            </form>
+            <button class="btn" type="button" onclick="answerQuiz4();">回答する</button>
+          </div>
+          <div class="quiz-container">
+            <h2>第5問</h2>
+            <div>
+              <p></p>
+            </div>
+            <form id="quiz-5">
+              <input name="answer" type="radio" value="a">残響散歌</input>
+              <input  name="answer" type="radio" value="b">新時代</input>
+              <input name="answer" type="radio" value="c">エジソン</input>
+            </form>
+            <button class="btn" type="button" onclick="answerQuiz5();">回答する</button>
+          </div>
+          <div class="quiz-container">
+            <h2>第6問</h2>
+            <div>
+              <p></p>
+            </div>
+            <form id="quiz-6">
+              <input name="answer" type="radio" value="a">残響散歌</input>
+              <input  name="answer" type="radio" value="b">新時代</input>
+              <input name="answer" type="radio" value="c">エジソン</input>
+            </form>
+            <button class="btn" type="button" onclick="answerQuiz6();">回答する</button>
+          </div>
+          <div class="quiz-container">
+            <h2>第7問</h2>
+            <div>
+              <p></p>
+            </div>
+            <form id="quiz-7">
+              <input name="answer" type="radio" value="a">残響散歌</input>
+              <input  name="answer" type="radio" value="b">新時代</input>
+              <input name="answer" type="radio" value="c">エジソン</input>
+            </form>
+            <button class="btn" type="button" onclick="answerQuiz7();">回答する</button>
+          </div>
+          <div class="quiz-container">
+            <h2>第8問</h2>
+            <div>
+              <p></p>
+            </div>
+            <form id="quiz-8">
+              <input name="answer" type="radio" value="a">残響散歌</input>
+              <input  name="answer" type="radio" value="b">新時代</input>
+              <input name="answer" type="radio" value="c">エジソン</input>
+            </form>
+            <button class="btn" type="button" onclick="answerQuiz8();">回答する</button>
+          </div>
+          <div class="quiz-container">
+            <h2>第9問</h2>
+            <div>
+              <p></p>
+            </div>
+            <form id="quiz-9">
+              <input name="answer" type="radio" value="a">残響散歌</input>
+              <input  name="answer" type="radio" value="b">新時代</input>
+              <input name="answer" type="radio" value="c">エジソン</input>
+            </form>
+            <button class="btn" type="button" onclick="answerQuiz9();">回答する</button>
+          </div>
+          <div class="quiz-container">
+            <h2>第10問</h2>
+            <div>
+              <p></p>
+            </div>
+            <form id="quiz-10">
+              <input name="answer" type="radio" value="a">残響散歌</input>
+              <input  name="answer" type="radio" value="b">新時代</input>
+              <input name="answer" type="radio" value="c">エジソン</input>
+            </form>
+            <button class="btn" type="button" onclick="answerQuiz10();">回答する</button>
+          </div>
+          <div class="quiz-container">
+            <h2>第11問</h2>
+            <div>
+              <p></p>
+            </div>
+            <form id="quiz-11">
+              <input name="answer" type="radio" value="a">残響散歌</input>
+              <input  name="answer" type="radio" value="b">新時代</input>
+              <input name="answer" type="radio" value="c">エジソン</input>
+            </form>
+            <button class="btn" type="button" onclick="answerQuiz11();">回答する</button>
+          </div>
+          <div class="quiz-container">
+            <h2>第12問</h2>
+            <div>
+              <p></p>
+            </div>
+            <form id="quiz-12">
+              <input name="answer" type="radio" value="a">残響散歌</input>
+              <input  name="answer" type="radio" value="b">新時代</input>
+              <input name="answer" type="radio" value="c">エジソン</input>
+            </form>
+            <button class="btn" type="button" onclick="answerQuiz12();">回答する</button>
+          </div>
+          <div class="quiz-container">
+            <h2>第13問</h2>
+            <div>
+              <p></p>
+            </div>
+            <form id="quiz-13">
+              <input name="answer" type="radio" value="a">残響散歌</input>
+              <input  name="answer" type="radio" value="b">新時代</input>
+              <input name="answer" type="radio" value="c">エジソン</input>
+            </form>
+            <button class="btn" type="button" onclick="answerQuiz13();">回答する</button>
+          </div>
+          <div class="quiz-container">
+            <h2>第14問</h2>
+            <div>
+              <p></p>
+            </div>
+            <form id="quiz-14">
+              <input name="answer" type="radio" value="a">残響散歌</input>
+              <input  name="answer" type="radio" value="b">新時代</input>
+              <input name="answer" type="radio" value="c">エジソン</input>
+            </form>
+            <button class="btn" type="button" onclick="answerQuiz14();">回答する</button>
+          </div>
+          <div class="quiz-container">
+            <h2>第15問</h2>
+            <div>
+              <p></p>
+            </div>
+            <form id="quiz-15">
+              <input name="answer" type="radio" value="a">残響散歌</input>
+              <input  name="answer" type="radio" value="b">新時代</input>
+              <input name="answer" type="radio" value="c">エジソン</input>
+            </form>
+            <button class="btn" type="button" onclick="answerQuiz15();">回答する</button>
+          </div>
+          <div id="score-container">
+            <p id="score-message"></p>
+          </div>
+          <button class="btn-score" type="button" onclick="showScore();">合計得点を見る</button>
+        </div>-->
+      </div>
+  </body>
+</html>
